@@ -29,12 +29,6 @@ class IntroductionTest {
     }
 
     @Test
-    fun getPatternTest() {
-        println(Introduction().getPattern())
-        assertEquals("aa", Introduction().getPattern())
-    }
-
-    @Test
     fun getPeopleTest() {
         val actual = Introduction().getPeople()
         assertEquals("Alice", actual[0].name)

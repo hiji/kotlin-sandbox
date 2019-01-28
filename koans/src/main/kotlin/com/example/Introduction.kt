@@ -1,5 +1,7 @@
 package com.example
 
+import java.util.*
+
 class Introduction {
     // Hello, world!
     fun start(): String = "OK"
@@ -58,4 +60,31 @@ class Introduction {
     interface Expr
     class Num(val value: Int) : Expr
     class Sum(val left: Expr, val right: Expr) : Expr
+
+    // Extension functions
+    fun Int.r(): RationalNumber = RationalNumber(this, 1)
+    fun Pair<Int, Int>.r(): RationalNumber = RationalNumber(first, second)
+
+    data class RationalNumber(val numerator: Int, val denominator: Int)
+
+    // Object expressions
+    fun getList(): List<Int> {
+        val arrayList = arrayListOf(1, 5, 2)
+        Collections.sort(arrayList, object : Comparator<Int> {
+            override fun compare(x: Int, y: Int) = y - x
+        })
+        return arrayList
+    }
+
+    // SAM conversions
+    fun getListWithSAM(): List<Int> {
+        val arrayList = arrayListOf(1, 5, 2)
+        Collections.sort(arrayList, { x, y -> y-x })
+        return arrayList
+    }
+
+    // Extensions on collections
+    fun getListWithKotlin(): List<Int> {
+        return arrayListOf(1, 5, 2).sortedDescending()
+    }
 }
