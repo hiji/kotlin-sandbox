@@ -1,4 +1,4 @@
-package com.example.collections.step1
+package com.example.collections
 
 // products
 val idea = Product("IntelliJ IDEA Ulitimate", 199.0)

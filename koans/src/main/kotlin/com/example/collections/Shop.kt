@@ -1,4 +1,4 @@
-package com.example.collections.step1
+package com.example.collections
 
 data class Shop(val name: String, val customers: List<Customer>)
 
